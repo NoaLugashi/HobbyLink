@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* תמונת רקע */
+.bg-photo {
+  background:
+    linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)),
+    url("https://bizmax.co.il/wp-content/uploads/2021/01/bizup-%D7%A8%D7%A7%D7%A2%D7%99%D7%9D-%D7%9C%D7%90%D7%AA%D7%A8.jpg") center / cover fixed no-repeat;
+}
+
+/* גרדיאנט צהוב→ירוק עם תנועה עדינה */
+.bg-sunny {
+  --c1: #fde68a;
+  /* צהוב רך */
+  --c2: #bbf7d0;
+  /* ירוק מנטה */
+  background: linear-gradient(120deg, var(--c1), var(--c2));
+  background-size: 200% 200%;
+  animation: bgShift 12s ease-in-out infinite;
+}
+
+@keyframes bgShift {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+/* רקע שמנת */
+.bg-cream {
+  background: #fff7e6;
+  /* שמנת עדינה */
+}
+
+/* צבע/גרדיאנט לטקסט של הכותרת הראשית */
+.brand-title {
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+/* אם בא לך צבעוניות של המותג על הטקסט עצמו: כחול→ירוק→אדום→צהוב */
+.brand-title.brand-gradient {
+  background: linear-gradient(90deg, #2563eb, #22c55e, #ef4444, #f59e0b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+:root {
+  --bs-primary: #2563eb;
+  /* כחול */
+  --bs-success: #22c55e;
+  /* ירוק */
+  --bs-danger: #ef4444;
+  /* אדום */
+  --bs-warning: #f59e0b;
+  /* צהוב */
+}
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
